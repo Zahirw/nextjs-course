@@ -1,6 +1,10 @@
+import EventList from 'components/event/EventList'
+import { getAllEvents } from 'dummy-data'
+
 const EventIndex = () => {
+  const events: Array<any> = getAllEvents()
   return (
-    <div>event index page</div>
+    <EventList items={events}/>
   )
 }
 export default EventIndex
