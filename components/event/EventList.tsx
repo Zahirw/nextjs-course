@@ -2,7 +2,14 @@
 import EventItem from "./EventItem"
 
 type Props = {
-  items: string[]
+  items: Array<any>
+}
+type Event = {
+  title: string,
+  image: string,
+  date: Date,
+  location: string,
+  id: string
 }
 
 const EventList = (props: Props) => {
@@ -10,8 +17,15 @@ const EventList = (props: Props) => {
   return (
     <ul>
       {
-        items.map((event:string) => 
-        <EventItem key={event}/>
+        items.map((event: Event) => 
+        <EventItem 
+          key={event.id}
+          id={event.id}
+          title={event.title}
+          location={event.location}
+          date={event.date}
+          image={event.image}
+        />
         )
       }
     </ul>

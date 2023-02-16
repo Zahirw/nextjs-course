@@ -1,7 +1,14 @@
+// components 
+import EventList from "components/event/EventList";
+
+import { getFeaturedEvents } from "dummy-data"
+
+
 const IndexPage = () => {
+  const featuredEvents = getFeaturedEvents();
   return (
     <div>
-      Index page
+      <EventList items={featuredEvents}/>
     </div>
   )
 }
