@@ -1,6 +1,7 @@
 // components
 import EventItem from "./EventItem"
-
+// Styles
+import classes from './EventList.module.css'
 type Props = {
   items: Array<any>
 }
@@ -15,7 +16,7 @@ type Event = {
 const EventList = (props: Props) => {
   const { items } = props
   return (
-    <ul>
+    <ul className={classes.list}>
       {
         items.map((event: Event) => 
         <EventItem 

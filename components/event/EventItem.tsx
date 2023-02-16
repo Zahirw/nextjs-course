@@ -1,5 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+
+// styles
+import classes from './EventItem.module.css'
+
 type Props = {
   title: string,
   image: string,
@@ -19,19 +23,19 @@ const EventItem = (props: Props) => {
   const formattedAddress = location.replace(', ', '\n');
   const exploreLink = `/events/${id}`;
   return (
-    <li>
-      <Image src={'/' + image} alt={title} width={500} height={500}/>
-      <div>
-        <div>
+    <li className={classes.item}>
+      <Image src={'/' + image} alt={title} width={300} height={300}/>
+      <div className={classes.content}>
+        <div className={classes.summary}>
           <h2>{title}</h2>
-          <div>
+          <div  className={classes.date}>
             <time>{humanReadableDate}</time>
           </div>
-          <div>
+          <div className={classes.address}>
             <address>{formattedAddress}</address>
           </div>
         </div>
-        <div>
+        <div className={classes.actions}>
           <Link href={exploreLink}>Explore Event</Link>
         </div>
       </div>
