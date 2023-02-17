@@ -1,22 +1,32 @@
+import { useRef } from 'react'
 // components
 import Button from 'components/ui/Button'
 import classes from './EventSearch.module.css'
-type Props = {}
+type Props = {
+  onSearch: any
+}
 
 const EventSearch = (props: Props) => {
+  const selectedMonth = useRef<HTMLSelectElement>(null)
+  const selectedYear = useRef<HTMLSelectElement>(null)
+
+  const submitSearchHandler: React.FormEventHandler = (event: React.FormEvent) => {
+    event.preventDefault()
+    props.onSearch(selectedMonth.current?.value, selectedYear.current?.value)
+  }
   return (
-    <form className={classes.form}>
+    <form className={classes.form} onSubmit={submitSearchHandler}>
       <div className={classes.controls}>
         <div className={classes.control}>
           <label htmlFor='year'>Year</label>
-          <select id='year' >
+          <select id='year' ref={selectedYear}>
             <option value='2021'>2021</option>
             <option value='2022'>2022</option>
           </select>
         </div>
         <div className={classes.control}>
           <label htmlFor='month'>Month</label>
-          <select id='month'>
+          <select id='month' ref={selectedMonth}>
             <option value='1'>January</option>
             <option value='2'>February</option>
             <option value='3'>March</option>
@@ -32,7 +42,7 @@ const EventSearch = (props: Props) => {
           </select>
         </div>
       </div>
-      <Button type='button' link='' onClick={()=> console.log('')}>
+      <Button type='button' link='' onClick={()=> {}}>
         Find Events
       </Button>
     </form>
