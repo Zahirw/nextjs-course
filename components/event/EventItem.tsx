@@ -41,7 +41,7 @@ const EventItem = (props: Props) => {
           </div>
         </div>
         <div className={classes.actions}>
-          <Button link={exploreLink}>
+          <Button type="link" link={exploreLink} onClick={()=>console.log('aa')}>
             <span>Explore Event</span>
             <span className={classes.icon}>
               <ArrowRightIcon />
