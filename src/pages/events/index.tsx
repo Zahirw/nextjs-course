@@ -9,7 +9,6 @@ const EventIndex = () => {
   const events: Array<any> = getAllEvents()
 
   const handleSearch = (month:any, year:any) => {
-    console.log(month, year)
     const path: string = `/events/${year}/${month}`
     router.push(path)
   }
